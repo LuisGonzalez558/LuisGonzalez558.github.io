@@ -20,7 +20,7 @@ self.addEventListener('install', e=>{
         })
         .catch(err=>console.log('No se ha registrado el cache', err))
     )
-});
+})
 
 self.addEventListener('activate',e => {
     const cacheWhiteList = [CACHE_NAME];
@@ -41,7 +41,7 @@ self.addEventListener('activate',e => {
             self.clients.claim();//activa la cache en el dispositivo
         })
     )
-});
+})
 
 self.addEventListener('fetch',e => {
     e.respondWith(
