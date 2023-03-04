@@ -1,0 +1,26 @@
+{
+    "name":"Luis Gonzalez",
+    "short_name":"BCH-PWA",
+    "description":"Aplicación PWA de materia Web Progresivas",
+    "background_color":"#FFF",
+    "theme_color":"#FB314E",
+    "orientation":"landscape",
+    "display":"standalone", 
+    "start_url":"./index.html?utm_source=web_app_manifest",
+    "scope":"./",
+    "lang":"es-MX",
+    "icons":[
+        {
+            "src": "./windows11/StoreLogo.scale-125.png",
+            "sizes": "63x63"
+          },
+          {
+            "src": "./windows11/StoreLogo.scale-150.png",
+            "sizes": "75x75"
+          },
+          {
+            "src": "./windows11/StoreLogo.scale-200.png",
+            "sizes": "100x100"
+          }
+    ]
+}
