@@ -23,7 +23,7 @@ self.addEventListener('install', e=>{
 });
 
 self.addEventListener('activate',e => {
-    const cacheWhiteList = ['micache'];
+    const cacheWhiteList = [CACHE_NAME];
     //que el evento espere a que termine de ejecutar
     e.waitUntill(
         caches.keys()
