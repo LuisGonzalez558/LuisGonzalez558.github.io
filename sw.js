@@ -11,7 +11,7 @@ var urlsToCache=[
 
 self.addEventListener('install', e=>{
     e.waitUntill(
-        caches.open(CACHE_NAME)
+        caches.open('micache')
               .then(cache => {
                 return cache.addAll(urlsToCache)
                 .then(()=>{
@@ -23,7 +23,7 @@ self.addEventListener('install', e=>{
 });
 
 self.addEventListener('activate',e => {
-    const cacheWhiteList = [CACHE_NAME];
+    const cacheWhiteList = ['micache'];
     //que el evento espere a que termine de ejecutar
     e.waitUntill(
         caches.keys()
