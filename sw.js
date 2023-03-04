@@ -19,7 +19,7 @@ self.addEventListener('install', e=>{
                 })
         })
         .catch(err=>console.log('No se ha registrado el cache', err))
-    )
+    );
 });
 
 self.addEventListener('activate',e => {
@@ -41,7 +41,7 @@ self.addEventListener('activate',e => {
             self.clients.claim();//activa la cache en el dispositivo
         })
     );
-})
+});
 
 self.addEventListener('fetch',e => {
     e.respondWith(
@@ -54,4 +54,4 @@ self.addEventListener('fetch',e => {
             return fetch(e.request);//hago peticion al servidor en caso de que no este en cache
         })
     );
-})
+});
