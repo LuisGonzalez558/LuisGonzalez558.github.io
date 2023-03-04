@@ -12,7 +12,7 @@ var urlsToCache=[
 self.addEventListener('install', e=>{
     e.WaitUntill(
         caches.open(CACHE_NAME)
-              .then(cache => {
+              .then((cache) => {
                 return cache.addAll(urlsToCache)
                 .then(()=>{
                     self.skipWaiting();
