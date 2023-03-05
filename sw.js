@@ -12,15 +12,14 @@ var urlsToCache=[
 self.addEventListener('install', e=>{
     e.waitUntill(
         caches.open(CACHE_NAME)
-              .then((cache) => {
+              .then(cache => {
                 return cache.addAll(urlsToCache)
-                .then(()=>{
-                    self.skipWaiting();
-                })
+                .then(()=> self.skipWaiting()
+                )
         })
         .catch(err=>console.log('No se ha registrado el cache', err))
-    );
-})
+    )
+});
 
 self.addEventListener('activate',e => {
     const cacheWhiteList = [CACHE_NAME];
@@ -40,8 +39,8 @@ self.addEventListener('activate',e => {
         .then(()=>{
             self.clients.claim();//activa la cache en el dispositivo
         })
-    );
-})
+    )
+});
 
 self.addEventListener('fetch',e => {
     e.respondWith(
