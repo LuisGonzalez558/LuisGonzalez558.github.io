@@ -52,5 +52,5 @@ self.addEventListener('fetch',e => {
             }
             return fetch(e.request);//hago peticion al servidor en caso de que no este en cache
         })
-    );
+    )
 });
