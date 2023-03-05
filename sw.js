@@ -6,7 +6,8 @@ var urlsToCache=[
     './',
     './windows11/StoreLogo.scale-125.png',
     './windows11/StoreLogo.scale-150.png',
-    './windows11/StoreLogo.scale-200.png'
+    './windows11/StoreLogo.scale-200.png',
+    './windows11/Square44x44Logo.targetsize-256.png'
 ];
 
 self.addEventListener('install', e=>{

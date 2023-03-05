@@ -21,6 +21,10 @@
           {
             "src": "./windows11/StoreLogo.scale-200.png",
             "sizes": "100x100"
+          },
+          {
+            "src": "windows11/Square44x44Logo.targetsize-256.png",
+            "sizes": "256x256"
           }
     ]
 }
