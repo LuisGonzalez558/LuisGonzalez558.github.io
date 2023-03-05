@@ -22,16 +22,16 @@ self.addEventListener('install', e=>{
 });
 
 self.addEventListener('activate',e => {
-    const cacheWhiteList = [CACHE_NAME];
+    const cacheWhitelist = [CACHE_NAME];
     //que el evento espere a que termine de ejecutar
     e.waitUntill(
         caches.keys()
         .then(cacheNames=>{
             return Promise.all(
                 cacheNames.map(cacheName => {
-                    if(cacheWhiteList.indexOf(cacheName)== -1)
+                    if(cacheWhitelist.indexOf(cacheName)== -1)
                     {
-                        return cache.delete(cacheName);
+                        return caches.delete(cacheName);
                     }
                 })
             );
