@@ -1,8 +1,8 @@
 //Asignar nombre y version de la cache
-const CACHE_NAME='v1_cache_BCH_PWA';
+const CACHE_NAME = 'v1_cache_BCH_PWA';
 
 //configuracion de los ficheros
-var urlsToCache=[
+var urlsToCache = [
     './index.html',
     './sw.js',
     './main.js',
@@ -13,52 +13,38 @@ var urlsToCache=[
     './windows11/Square44x44Logo.targetsize-256.png'
 ];
 
-self.addEventListener('install', e=>{
+self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => { return cache.addAll(urlsToCache).then(() => { self.skipWaiting() }).catch(err => console.log('Hubo un error', err)) })); });
 
-    e.waitUntil(
-        caches.open(CACHE_NAME)
-        .then(cache => {
-            return cache.addAll(urlsToCache)
-                        .then(() =>{
-                            self.skipWaiting(); 
-                        })
-        })
-        .catch(err=>console.log('No se ha registrado el cache', err))
-);
-});
-
-self.addEventListener('activate',e => {
+self.addEventListener('activate', e => {
     const cacheWhitelist = [CACHE_NAME];
 
 
     e.waitUntil(
         caches.keys()
-                .then(cacheNames=>{
+            .then(cacheNames => {
                 return Promise.all(
-                    cacheNames.map(cacheName =>{
-                        if(cacheWhitelist.indexOf(cacheName)== -1)
-                        {
-
+                    cacheNames.map(cacheName => {
+                        if (cacheWhitelist.indexOf(cacheName) == -1) {
                             return cache.delete(cacheName);
                         }
                     })
                 );
-               })
-               .then(()=> {
-                self.clients.claim(); 
-               })
+            })
+            .then(() => {
+                self.clients.claim();
+            })
     );
 
 });
 
-self.addEventListener('fetch',e => {
+self.addEventListener('fetch', e => {
     e.respondWith(
         caches.match(e.request)
-                .then (res => {
-                    if(res){
-                        return res;
-                    }
-                    return fetch(e.request); 
-                })
+            .then(res => {
+                if (res) {
+                    return res;
+                }
+                return fetch(e.request);
+            })
     );
 });
